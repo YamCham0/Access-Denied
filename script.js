@@ -81,6 +81,11 @@ var specialChar = [
   '.',
 ];
 var numChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+// function to grab user input
+function pwCriteria() {
+  var length = parseInt(prompt("Choose a password length from 8 to 128 characters"))
+}
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
