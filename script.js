@@ -112,11 +112,19 @@ function pwCriteria() {
     alert("The password must contain one type of character!");
     return;
   }
+  var userChoice = {
+    length: length,
+    lower: lwrChoice,
+    upper: upprChoice,
+    number: numChoice,
+    special: spcChoice
+   }
+   return userChoice;
 }
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-  pwCriteria();
+  var input = pwCriteria();
 }
 
 // Write password to the #password input
