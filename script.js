@@ -96,21 +96,28 @@ function pwCriteria() {
 
   //I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
   var lwrChoice = confirm("Click ok if you want lower case letters");
-  
+
   var upprChoice = confirm("Click ok if you want upper case letters");
 
   var numChoice = confirm("Click ok if you want numbers");
 
   var spcChoice = confirm("Click ok if you want special characters");
-
+  // VALIDATE IF USER CHOSE CHARACTERS
+  if (
+    lwrChoice === false &&
+    upprChoice === false &&
+    numChoice === false &&
+    spcChoice === false
+  ) {
+    alert("The password must contain one type of character!");
+    return;
+  }
 }
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-  pwCriteria()
+  pwCriteria();
 }
-
-
 
 // Write password to the #password input
 function writePassword() {
