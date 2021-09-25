@@ -89,7 +89,7 @@ function pwCriteria() {
     prompt("Choose a password length from 8 to 128 characters")
   );
   // length validation
-  if (length < 8 || length > 128) {
+  if (length < 8 || length > 128 || Number.isNaN(length)) {
     alert("Password needs to be in beetwen 8 to 128");
     return;
   }
@@ -105,6 +105,12 @@ function pwCriteria() {
 
 }
 var generateBtn = document.querySelector("#generate");
+
+function generatePassword() {
+  pwCriteria()
+}
+
+
 
 // Write password to the #password input
 function writePassword() {
