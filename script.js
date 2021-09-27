@@ -82,6 +82,9 @@ var specialChar = [
 ];
 
 var numChar = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var rndPass = "";
+var allChar = [];
+console.log(allChar)
 
 // function to grab user input
 function pwCriteria() {
@@ -112,24 +115,37 @@ function pwCriteria() {
     alert("The password must contain one type of character!");
     return;
   }
-  var userChoice = {
-    length: length,
-    lower: lwrChoice,
-    upper: upprChoice,
-    number: numChoice,
-    special: spcChoice
-   }
-   return userChoice;
+  if (lwrChoice) {
+    allChar = allChar.concat(lowerChar)
+    
+  }
+  if (upprChoice) {
+    allChar = allChar.concat(upperChar)
+    
+  }
+  if (numChoice) {
+    allChar = allChar.concat(numChar)
+    
+  }
+  if (spcChoice) {
+    allChar = allChar.concat(specialChar)
+    
+  }
+  for (var i = 0; i < length; i++) {
+    var index = Math.floor(Math.random() * allChar.length);
+    var rndChar = allChar[index];
+    rndPass = rndPass.concat(rndChar)
+  
+  }
+   return rndPass;
 }
+// Button
 var generateBtn = document.querySelector("#generate");
 
-function generatePassword() {
-  var input = pwCriteria();
-}
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = pwCriteria();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
